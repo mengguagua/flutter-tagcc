@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dio/dio.dart';
 
 class UsernameRouter extends StatelessWidget {
   @override
@@ -27,7 +28,10 @@ class UsernameRouter extends StatelessWidget {
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20)
-              )
+              ),
+              boxShadow: [
+                BoxShadow(color: Color(0xfff0f6f7), blurRadius: 40)
+              ],
           ),
           child: Padding(
             padding: EdgeInsets.all(40),
@@ -106,6 +110,12 @@ class UsernameRouter extends StatelessWidget {
     );
   }
 }
-void _next() {
-
+void _next() async{
+  try {
+    print('xxxgcc');
+    var response = await Dio().get('http://www.baidu.com');
+    print(response);
+  } catch (e) {
+    print(e);
+  }
 }
